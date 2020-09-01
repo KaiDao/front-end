@@ -8,6 +8,8 @@ import LoginPage from "./Components/LoginPage";
 import CreateAccount from "./Components/CreateAccount";
 import axios from "axios";
 
+import Container from 'react-bootstrap/Container'
+
 import setAuthToken from "./Utils/setAuthToken";
 
 //this needs to be moved to a config file, or at least move all x site requests to one place.
@@ -72,7 +74,7 @@ class App extends Component {
           handleLogOut={this.handleLogOut}
         />
         <Router>
-          <div className="container col-md-4 padded-top">
+          <Container className="padded-top">
             {!this.state.loggedIn ? (//dep[ending if the user loggs in display login page or user home.]
               <Route
                 path="/"
@@ -83,7 +85,7 @@ class App extends Component {
               <Route path="/" exact component={() => <UserHome/>} />
             )}
             <Route path="/CreateAccount" exact component={CreateAccount} />
-          </div>
+          </Container>
         </Router>
       </div>
     );
