@@ -80,7 +80,7 @@ class App extends Component {
                 component={() => <LoginPage handleLoggin={this.handleLogin} />}
               />
             ) : (
-              <Route path="/" exact component={UserHome} />
+              <Route path="/" exact component={() => <UserHome/>} />
             )}
             <Route path="/CreateAccount" exact component={CreateAccount} />
           </div>
