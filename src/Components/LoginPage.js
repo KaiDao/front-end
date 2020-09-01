@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
 
 //This Card renders when no user is logged in and the path is /.
 class LoginPage extends Component {
@@ -42,7 +43,8 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <Card style={{ width: "25rem" }}>
+      <Row className="justify-content-md-center">
+      <Card >
         <Card.Header>Login</Card.Header>
         <Card.Body>
           <Form className="container" onSubmit={this.handleSubmit}>
@@ -83,6 +85,7 @@ class LoginPage extends Component {
           </Form>
         </Card.Body>
       </Card>
+      </Row>
     );
   }
 }

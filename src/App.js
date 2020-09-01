@@ -24,6 +24,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    localStorage.removeItem("jwtToken");
+    setAuthToken(false);
+
     this.state = {
       loggedIn: false, // default login status is false.
     };
