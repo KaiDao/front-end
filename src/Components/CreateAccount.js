@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { withRouter } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
@@ -9,9 +8,9 @@ import Row from "react-bootstrap/Row";
 
 import axios from "axios";
 
+//*********this block of axios config needs to be moved in a better place ************* */
 axios.defaults.baseURL = "http://localhost:5000";
-axios.defaults.headers.post["Content-Type"] =
-  "application/x-www-form-urlencoded";
+axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 axios.defaults.headers.post["Access-Control-Allow-Headers"] = "*";
 
@@ -33,6 +32,8 @@ class CreateAccount extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+  //event e passed to onChange event prop in form fields
   handleInputChange(e) {
     e.preventDefault(e);
     const target = e.target;
@@ -43,9 +44,9 @@ class CreateAccount extends Component {
     });
   }
 
+  //event e passed on form onSubmit prop
   handleSubmit(e) {
     e.preventDefault(e);
-
     const data = {
       email: this.state.email,
       name: this.state.name,
@@ -56,9 +57,7 @@ class CreateAccount extends Component {
       password2: this.state.password2,
     };
 
-    //todo : perform a request to server
-
-    axios
+    axios // corss site server api call 
       .post("/api/users/register", data)
       .then(function (response) {
         console.log(response);
@@ -67,9 +66,8 @@ class CreateAccount extends Component {
         console.log(error);
       });
 
-    //console.log(data);
-
-    this.props.history.push("/");
+    this.props.history.push("/");//{withRouter} grants us the history prop for redirect.
+                                 //ensure we export CreatAccount as withRouter 
   }
 
   render() {

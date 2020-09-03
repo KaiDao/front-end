@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
+// this is a place holder for a searchBar component
 function SearchBar() {
   return (
     <Form inline>
@@ -15,6 +16,8 @@ function SearchBar() {
   );
 }
 
+// renders the navbar at the top of the screen.
+//@ props loggedIn and handleLogout
 class SiteNav extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +25,7 @@ class SiteNav extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  //called when logout button is pressed
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleLogOut();

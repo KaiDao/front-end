@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 
-//This Card renders when no user is logged in and the path is /.
+// This Card renders a login page
+// @props handleLoggin
 class LoginPage extends Component {
   
   constructor(props) {

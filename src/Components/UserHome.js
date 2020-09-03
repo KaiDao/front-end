@@ -9,11 +9,14 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+
+// @render: user info and there personal posts, comments TODO: creat a feed. 
+// @props : none data for the user is passed as the localStorage in the jwttoken recived from login.  
 class UserHome extends Component {
   constructor(props) {
     super(props);
 
-    const userData = jwt_decode(localStorage["jwtToken"]);
+    const userData = jwt_decode(localStorage["jwtToken"]);//decodes user data from the token.
     this.state = userData;
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,27 +55,6 @@ class UserHome extends Component {
           </Card>
         </Col>
         <Col>
-          <Card>
-            <Card.Header>New Post!</Card.Header>
-            <Card.Body>
-              <Form className="container" onSubmit={this.handleSubmit}>
-                <Form.Group controlId="newpost" className="row">
-                  <Form.Control
-                    as="textarea"
-                    name="new post"
-                    rows="3"
-                    onChange={this.handleInputChange}
-                    type="text"
-                    placeholder={this.state.newpost}
-                  />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
           <Card>
             <Card.Header>posts</Card.Header>
             <Card.Body>
