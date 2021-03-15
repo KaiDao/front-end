@@ -8,7 +8,7 @@ import LoginPage from "./Components/LoginPage";
 import CreateAccount from "./Components/CreateAccount";
 import axios from "axios";
 
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 
 import setAuthToken from "./Utils/setAuthToken";
 
